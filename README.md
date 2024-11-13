@@ -1,2 +1,2 @@
 # PostScan
-Postgres Security Scanner
+PostgreSQL Security Scanner
