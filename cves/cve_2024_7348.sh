@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://www.cvedetails.com/cve/CVE-2024-7348/
+
 cve_2024_7348(){
     echo -e "${YELLOW}[*] Checking CVE-2024-7348...${RESET}"
 
