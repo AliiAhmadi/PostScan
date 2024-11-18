@@ -29,12 +29,14 @@ export_csv(){
     if [ -f "$output_file" ]; then
         read -p "The file '$output_file' already exists. Do you want to overwrite it? (y/n): " choice
 
-        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
-            echo "Name,Description,Severity,Score" > "$output_file"
-
-            for entry in "${vulnerabilities[@]}"; do
-                echo "$entry" | tr '|' ',' >> "$output_file"
-            done
+        if [[ "$choice" != "y" && "$choice" != "Y" ]]; then
+            return
         fi
     fi
+
+    echo "Name,Description,Severity,Score" > "$output_file"
+
+    for entry in "${vulnerabilities[@]}"; do
+        echo "$entry" | tr '|' ',' >> "$output_file"
+    done
 }

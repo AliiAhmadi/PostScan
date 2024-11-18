@@ -40,4 +40,5 @@ check_security_configs
 
 echo -e "${YELLOW}[*] Security scan completed.\n${RESET}"
 
+export_csv
 print_vulnerability_table
