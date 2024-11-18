@@ -13,6 +13,7 @@ check_postgres_running(){
 }
 
 print_vulnerability_table(){
+    printf "\n"
     printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "Vulnerability Name" "Description" "Severity" "Base Score"
     printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "--------------------" "--------------------------------------------------" "---------------" "----------"
 
@@ -27,7 +28,7 @@ export_csv(){
     output_file="vulnerabilities.csv"
 
     if [ -f "$output_file" ]; then
-        read -p "The file '$output_file' already exists. Do you want to overwrite it? (y/n): " choice
+        read -p "$(echo -e "${RED}The file '$output_file' already exists. Do you want to overwrite it? (y/n): ${RESET}")" choice
 
         if [[ "$choice" != "y" && "$choice" != "Y" ]]; then
             return
