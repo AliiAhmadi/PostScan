@@ -1,5 +1,5 @@
 #!/bin/bash
 
-DB_USER="postgres"
+DB_USER="testuser"
 DB_HOST="localhost"
-DB_PORT="5432"
+DB_NAME="cve_test"

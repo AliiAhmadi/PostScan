@@ -10,8 +10,7 @@ check_cves(){
         sleep 1
         source "$cve_file"
         cve_function_name=$(basename "$cve_file" .sh)
-        # echo -e "${YELLOW}[*] Running $cve_function_name...${RESET}"
-        $cve_function_name
+        $cve_function_name $DB_HOST $DB_USER $DB_NAME
 
     done
 }
