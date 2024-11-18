@@ -3,7 +3,7 @@
 
 check_security_configs(){
     echo -e "${YELLOW}[*] Checking PostgreSQL configuration...${RESET}"
-    CONFIG_FILE="/var/lib/pgsql/data/postgresql.conf"
+    CONFIG_FILE="/var/lib/pgsql/data/pg_hba.conf"
 
 
     if [[ ! -f $CONFIG_FILE  ]]; then

@@ -3,4 +3,4 @@
 .PHONY: run
 run:
 	@chmod +x main.sh ./lib/* ./cves/* config.sh
-	@./main.sh
+	@sudo ./main.sh
