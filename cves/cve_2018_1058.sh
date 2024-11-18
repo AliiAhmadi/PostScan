@@ -7,7 +7,7 @@ cve_2018_1058() {
 
     local payload="SET search_path = public, pg_catalog; DROP TABLE IF EXISTS test_table; CREATE TABLE test_table(id SERIAL PRIMARY KEY);"
 
-    echo -e "${YELLOW}[*] Checking CVE-2018-1058...${RESET}"
+    echo -e "${YELLOW}[*] Checking CVE-2018-1058: SQL Injection via Schema Modification...${RESET}"
 
     output=$(psql -h "$target_ip" -U "$username" -d "$database" -c "$payload" 2>&1)
 
