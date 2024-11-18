@@ -10,9 +10,9 @@ cve_2019_9193() {
     extension_check=$(psql -h "$target_ip" -U "$username" -d "$database" -t -c "SELECT EXISTS(SELECT 1 FROM pg_extension WHERE extname = 'postgres_fdw');")
 
     if [[ "$extension_check" == " t" ]]; then
-        echo -e "${GREEN}postgres_fdw extension is installed on the target database.${RESET}"
+        echo -e "${GREEN}[+] postgres_fdw extension is installed on the target database.${RESET}"
     else
-        echo -e "${RED}postgres_fdw extension is not installed on the target database.${RESET}"
+        echo -e "${RED}[!] postgres_fdw extension is not installed on the target database.${RESET}"
         return 1
     fi
 
