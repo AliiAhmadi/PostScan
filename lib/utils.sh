@@ -22,3 +22,19 @@ print_vulnerability_table(){
 
     done
 }
+
+export_csv(){
+    output_file="vulnerabilities.csv"
+
+    if [ -f "$output_file" ]; then
+        read -p "The file '$output_file' already exists. Do you want to overwrite it? (y/n): " choice
+
+        if [[ "$choice" == "y" || "$choice" == "Y" ]]; then
+            echo "Name,Description,Severity,Score" > "$output_file"
+
+            for entry in "${vulnerabilities[@]}"; do
+                echo "$entry" | tr '|' ',' >> "$output_file"
+            done
+        fi
+    fi
+}
