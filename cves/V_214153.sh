@@ -4,6 +4,12 @@
 V_214153(){
     echo -e "${YELLOW}[*] Checking if OpenSSL is FIPS compliant...${RESET}"
 
+    local NAME="V-214153"
+    local DESCRIPTION="PostgreSQL must use NIST FIPS 140-2 or 140-3 validated cryptographic modules for cryptographic operations"
+    local SEVERITY="HIGH"
+    local SCORE=""
+    local DONE="0"
+
     openssl_version=$(openssl version)
     if [[ "$openssl_version" == *"fips"* ]]; then
         echo -e "${GREEN}[+] FIPS is already enabled in OpenSSL.${RESET}"
@@ -11,6 +17,9 @@ V_214153(){
     else
         echo -e "${RED}[!] FIPS is NOT enabled in OpenSSL. Attempting to fix...${RESET}"
 
+        if [ "$(cat /proc/sys/crypto/fips_enabled)" != "1"  ]; then
+                sudo fips-mode-setup --enable
+        fi
 
         if ! rpm -q openssl-fips &>/dev/null; then
             echo -e "${YELLOW}[*] Installing openssl-fips package...${RESET}"
@@ -23,6 +32,7 @@ V_214153(){
             echo -e "${GREEN}[+] FIPS mode enabled system-wide.${RESET}"
         else
             echo -e "${RED}[!] FIPS mode cannot be enabled system-wide. Manual intervention required.${RESET}"
+            vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|$DONE")
             return 1
         fi
 
@@ -38,5 +48,7 @@ V_214153(){
         sudo systemctl restart postgresql
 
         echo -e "${GREEN}[+] FIPS mode enabled successfully!${RESET}"
+        DONE="1"
+        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|$DONE")
     fi
 }

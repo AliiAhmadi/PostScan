@@ -23,7 +23,7 @@ cve_2016_5424() {
         local SEVERITY="HIGH"
         local SCORE="7.5"
 
-        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|0")
 
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2016-5424.${RESET}"

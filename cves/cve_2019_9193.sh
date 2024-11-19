@@ -28,6 +28,6 @@ cve_2019_9193() {
         local SEVERITY="HIGH"
         local SCORE="7.8"
 
-        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|0")
     fi
 }

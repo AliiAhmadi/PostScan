@@ -35,7 +35,7 @@ export_csv(){
         fi
     fi
 
-    echo "Name,Description,Severity,Score" > "$output_file"
+    echo "Name,Description,Severity,Score,Done" > "$output_file"
 
     for entry in "${vulnerabilities[@]}"; do
         echo "$entry" | tr '|' ',' >> "$output_file"

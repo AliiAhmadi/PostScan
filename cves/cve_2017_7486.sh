@@ -32,7 +32,7 @@ cve_2017_7486() {
         local SEVERITY="HIGH"
         local SCORE="7.5"
 
-        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|0")
 
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2017-7486.${RESET}"

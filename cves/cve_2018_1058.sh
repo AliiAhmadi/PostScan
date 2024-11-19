@@ -18,7 +18,7 @@ cve_2018_1058() {
         local DESCRIPTION="SQL Injection via Schema Modification"
         local SEVERITY="HIGH"
         local SCORE="7.5"
-        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESCRIPTION|$SEVERITY|$SCORE|0")
 
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2024-0985.${RESET}"
