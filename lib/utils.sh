@@ -12,15 +12,32 @@ check_postgres_running(){
     fi
 }
 
+#print_vulnerability_table(){
+#    printf "\n"
+#    printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "Vulnerability Name" "Description" "Severity" "Base Score"
+#    printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "--------------------" "---------------------------------------------------------------------------------------------------" "---------------" "----------"
+#
+#    for vulnerability in "${vulnerabilities[@]}"; do
+#        IFS='|' read -r name description severity score <<< "$vulnerability"
+#        printf "${RED}%-25s %-50s %-15s %-10s\n${RESET}" "$name" "$description" "$severity" "$score"
+#
+#    done
+#}
+
 print_vulnerability_table(){
+    MAX_DESC_LENGTH=50
     printf "\n"
+
     printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "Vulnerability Name" "Description" "Severity" "Base Score"
     printf "${BLUE}%-25s %-50s %-15s %-10s\n${RESET}" "--------------------" "--------------------------------------------------" "---------------" "----------"
 
     for vulnerability in "${vulnerabilities[@]}"; do
         IFS='|' read -r name description severity score <<< "$vulnerability"
-        printf "${RED}%-25s %-50s %-15s %-10s\n${RESET}" "$name" "$description" "$severity" "$score"
+        if [ ${#description} -gt $MAX_DESC_LENGTH  ]; then
+            description="${description:0:$((MAX_DESC_LENGTH-3))}..."
+        fi
 
+        printf "${RED}%-25s %-50s %-15s %-10s\n${RESET}" "$name" "$description" "$severity" "$score"
     done
 }
 
