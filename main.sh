@@ -30,6 +30,7 @@ source "$(dirname "$0")/config.sh"
 source "$(dirname "$0")/lib/check_cves.sh"
 source "$(dirname "$0")/lib/check_configs.sh"
 source "$(dirname "$0")/lib/utils.sh"
+source "$(dirname "$0")/lib/metasploit.sh"
 
 echo -e "${YELLOW}[*] Starting PostgreSQL Security Scan...${RESET}"
 sleep 2
@@ -41,4 +42,6 @@ check_security_configs
 echo -e "${YELLOW}[*] Security scan completed.\n${RESET}"
 
 export_csv
+metasploit_scan $DB_HOST $DB_USER $DB_PORT $DB_PASSWORD
 print_vulnerability_table
+

