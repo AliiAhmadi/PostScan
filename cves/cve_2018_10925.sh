@@ -9,7 +9,7 @@ cve_2018_10925(){
     VERSION=$(psql -V | awk '{print $3}')
 
     if [[ $(echo "$VERSION >= 9.5" | bc) -eq 1 && $(echo "$VERSION < 10.5" | bc) -eq 1 ]]; then
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|0")
         echo -e "${RED}[!] Vulnerable to CVE-2018-10925!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2018-10925.${RESET}"

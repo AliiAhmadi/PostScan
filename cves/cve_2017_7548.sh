@@ -12,13 +12,13 @@ cve_2017_7548(){
 
     VERSION=$(psql -V | awk '{print $3}')
 
-    if { [[ $(echo "$VERSION >= 9.4" | bc) -eq 1 && $(echo "$VERSION < 9.4.13" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.5" | bc) -eq 1 && $(echo "$VERSION < 9.5.8" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.6" | bc) -eq 1 && $(echo "$VERSION < 9.6.4" | bc) -eq 1  ]]
+    if { [[ $(echo "$VERSION >= 9.4" | bc) -eq 1 && $(echo "$VERSION < 9.4" | bc) -eq 1  ]] ||
+         [[ $(echo "$VERSION >= 9.5" | bc) -eq 1 && $(echo "$VERSION < 9.5" | bc) -eq 1  ]] ||
+         [[ $(echo "$VERSION >= 9.6" | bc) -eq 1 && $(echo "$VERSION < 9.6" | bc) -eq 1  ]]
 
         }; then
 
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|0")
         echo -e "${RED}[!] Vulnerable to CVE-2017-7548!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2017-7548.${RESET}"

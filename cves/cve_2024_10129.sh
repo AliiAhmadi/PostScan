@@ -2,7 +2,7 @@
 
 # https://www.cvedetails.com/cve/CVE-2019-10129/
 
-cve_2024_0985(){
+cve_2024_10129(){
     echo -e "${YELLOW}[*] Checking CVE-2019-10129...${RESET}"
 
     local NAME="CVE-2019-10129"
@@ -16,7 +16,7 @@ cve_2024_0985(){
 
         }; then
 
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|0")
         echo -e "${RED}[!] Vulnerable to CVE-2019-10129!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2019-10129.${RESET}"

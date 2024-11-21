@@ -12,11 +12,11 @@ cve_2017_14798(){
 
     VERSION=$(psql -V | awk '{print $3}')
 
-    if { [[ $(echo "$VERSION <= 9.4-0.5.3.1" | bc) -eq 1 ]]
+    if { [[ $(echo "$VERSION <= 9.4" | bc) -eq 1 ]]
 
         }; then
 
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|0")
         echo -e "${RED}[!] Vulnerable to CVE-2017-14798!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2017-14798.${RESET}"

@@ -12,13 +12,13 @@ cve_2018_1052(){
 
     VERSION=$(psql -V | awk '{print $3}')
 
-    if { 
-            [[ $(echo "$VERSION == 10.0" | bc) -eq 1  ]] || 
+    if {
+            [[ $(echo "$VERSION == 10.0" | bc) -eq 1  ]] ||
             [[ $(echo "$VERSION == 10.1" | bc) -eq 1  ]]
 
         }; then
 
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|0")
         echo -e "${RED}[!] Vulnerable to CVE-2018-1052!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2018-1052.${RESET}"

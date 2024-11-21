@@ -12,17 +12,17 @@ cve_2018_1053(){
 
     VERSION=$(psql -V | awk '{print $3}')
 
-    if { 
+    if {
          [[ $(echo "$VERSION == 10.0" | bc) -eq 1  ]] ||
          [[ $(echo "$VERSION == 10.1" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.3.0" | bc) -eq 1 && $(echo "$VERSION < 9.3.21" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.4.0" | bc) -eq 1 && $(echo "$VERSION < 9.4.16" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.5.0" | bc) -eq 1 && $(echo "$VERSION < 9.5.11" | bc) -eq 1  ]] ||
-         [[ $(echo "$VERSION >= 9.6.0" | bc) -eq 1 && $(echo "$VERSION < 9.6.7" | bc) -eq 1 ]]
+         [[ $(echo "$VERSION >= 9.3" | bc) -eq 1 && $(echo "$VERSION < 9.3" | bc) -eq 1  ]] ||
+         [[ $(echo "$VERSION >= 9.4" | bc) -eq 1 && $(echo "$VERSION < 9.4" | bc) -eq 1  ]] ||
+         [[ $(echo "$VERSION >= 9.5" | bc) -eq 1 && $(echo "$VERSION < 9.5" | bc) -eq 1  ]] ||
+         [[ $(echo "$VERSION >= 9.6" | bc) -eq 1 && $(echo "$VERSION < 9.6" | bc) -eq 1 ]]
 
         }; then
 
-        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE")
+        vulnerabilities+=("$NAME|$DESC|$SEVERITY|$SCORE|1")
         echo -e "${RED}[!] Vulnerable to CVE-2018-1053!${RESET}"
     else
         echo -e "${GREEN}[+] Not vulnerable to CVE-2018-1053.${RESET}"
